@@ -114,7 +114,7 @@ class _HomePageState extends State<HomePage> {
                       color: Colors.white,
                     ),
                     SizedBox(
-                      height: 10.0,
+                      height: 20.0,
                     ),
 
                     Container(
