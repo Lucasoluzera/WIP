@@ -25,9 +25,10 @@ flutter:
     - assets/iwent-logo.png
     - assets/fb-icon.png
     - assets/iw-icon.png
-    - assets/carousel/1.jpg
-    - assets/carousel/2.jpg
-    - assets/carousel/3.jpg
+    - assets/LoginPage/carousel/1.jpg
+    - assets/LoginPage/carousel/2.jpg
+    - assets/LoginPage/carousel/3.jpg
+    - assets/CadastroPage/users-icon.png
 
   fonts:
       - family: Lobster

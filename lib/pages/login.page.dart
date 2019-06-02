@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iwent/pages/cadastro.page.dart';
 
 
 class LoginPage extends StatelessWidget {
@@ -43,7 +44,7 @@ class LoginPage extends StatelessWidget {
                     fontSize: 70,
                     color: Colors.white,
                   ),
-                  textAlign: TextAlign.center,
+                  textAlign: TextAlign.left,
                 ),
                 ],
               ),
@@ -67,7 +68,7 @@ class LoginPage extends StatelessWidget {
 
             TextFormField(
               keyboardType: TextInputType.emailAddress,     
-              style: new TextStyle(color: Colors.white, fontSize: 20, fontFamily: 'Overpass'),       
+              style: new TextStyle( fontSize: 20, fontFamily: 'Overpass'),       
               decoration: InputDecoration(          
                 labelText: "E-mail",
                 labelStyle: TextStyle(
@@ -110,6 +111,9 @@ class LoginPage extends StatelessWidget {
                   ),
                   textAlign: TextAlign.left,
                 ),
+                onPressed: () =>{
+                     Navigator.push(context, MaterialPageRoute(builder: (context) => CadastroPage()),) 
+                   },
               ),
             ),
 

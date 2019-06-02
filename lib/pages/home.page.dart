@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:iwent/pages/login.page.dart';
 
 final imagesList = [
-  "assets/carousel/1.jpg",
-  "assets/carousel/2.jpg",
-  "assets/carousel/3.jpg",
+  "assets/LoginPage/carousel/1.jpg",
+  "assets/LoginPage/carousel/2.jpg",
+  "asset/LoginPage//carousel/3.jpg",
 ];
 
 final colorList = [
@@ -127,12 +127,9 @@ class _HomePageState extends State<HomePage> {
                           fontSize: 18.0, 
                           fontWeight: FontWeight.w900),
                         ),
-                        onPressed: (){
-                          Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => LoginPage()),
-                        );                    
-                        },
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()),);                    
+                        },                      
                       )
                     )
                   ],
