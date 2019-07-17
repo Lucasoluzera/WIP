@@ -1,11 +1,12 @@
-import 'package:iwent/model/Detail.dart';
+
 import 'package:flutter/material.dart';
-import 'package:iwent/pages/login.page.dart';
+import 'package:iwent/src/home/home-detail.dart';
+import 'package:iwent/src/login/login-widget.dart';
 
 final imagesList = [
-  "assets/LoginPage/carousel/1.jpg",
-  "assets/LoginPage/carousel/2.jpg",
-  "asset/LoginPage//carousel/3.jpg",
+  "assets/HomeWidget/carousel/1.jpg",
+  "assets/HomeWidget/carousel/2.jpg",
+  "assets/HomeWidget/carousel/3.jpg",
 ];
 
 final colorList = [
@@ -14,12 +15,12 @@ final colorList = [
   Colors.amberAccent[200],
 ];
 
-class HomePage extends StatefulWidget {
+class HomeWidget extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _HomeWidgetState createState() => _HomeWidgetState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomeWidgetState extends State<HomeWidget> {
   int currentPage = 0;
   PageController _pageController;
 
@@ -99,12 +100,7 @@ class _HomePageState extends State<HomePage> {
                       detailsList[index].title,
                       style: TextStyle(
                           color: Colors.white, fontSize: 24.0, fontWeight: FontWeight.w600),
-                    ),
-                    SizedBox(height: 20.0),
-                    Text(
-                      detailsList[index].description,
-                      style: TextStyle(color: Colors.white, fontSize: 18.0),
-                    ),
+                    ),                  
                     SizedBox(
                       height:50.0,
                     ),
@@ -128,7 +124,7 @@ class _HomePageState extends State<HomePage> {
                           fontWeight: FontWeight.w900),
                         ),
                         onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()),);                    
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => LoginWidget()),);                    
                         },                      
                       )
                     )

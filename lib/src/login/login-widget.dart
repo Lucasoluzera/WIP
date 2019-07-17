@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:iwent/pages/cadastro.page.dart';
+import 'package:iwent/src/register/email-widget.dart';
 
-
-class LoginPage extends StatelessWidget {
+class LoginWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -112,7 +111,7 @@ class LoginPage extends StatelessWidget {
                   textAlign: TextAlign.left,
                 ),
                 onPressed: () =>{
-                     Navigator.push(context, MaterialPageRoute(builder: (context) => CadastroPage()),) 
+                     Navigator.push(context, MaterialPageRoute(builder: (context) => EmailWidget()),) 
                    },
               ),
             ),

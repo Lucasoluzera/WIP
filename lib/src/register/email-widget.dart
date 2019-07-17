@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:iwent/pages/login.page.dart';
+import 'package:iwent/src/login/login-widget.dart';
 
 
-class CadastroPage extends StatelessWidget {
+class EmailWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,10 +39,10 @@ class CadastroPage extends StatelessWidget {
                   Container(
                     child: SizedBox(
                       width: 200,
-                      height: 200,
-                      child: Image.asset("assets/CadastroPage/users-icon.png")
+                      height: 150,
+                      child: Image.asset("assets/RegisterWidget/email-icon.png")
                     ),
-                    alignment: Alignment.centerLeft,
+                    alignment: Alignment.center,
                   ),
                 ],
               ),
@@ -119,7 +119,7 @@ class CadastroPage extends StatelessWidget {
                   textAlign: TextAlign.left,
                 ),
                 onPressed: () =>{
-                     Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()),) 
+                     Navigator.push(context, MaterialPageRoute(builder: (context) => LoginWidget()),) 
                    },
               ),
             ),        
