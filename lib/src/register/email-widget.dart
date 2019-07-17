@@ -6,9 +6,8 @@ class EmailWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        
-        width: 400,
+      body: Container(        
+        width: 500,
       decoration: new BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topRight,
@@ -23,33 +22,28 @@ class EmailWidget extends StatelessWidget {
           top: 60,
           left: 40,
           right: 40,
+          bottom: 10,
         ),
         child: ListView(
           children: <Widget>[
-
-
             Container(
-              height: 200,
+              height: 60,
               alignment: Alignment.center,
-              child: Row(
-                children: <Widget>[
-                  SizedBox(
-                    width: 40,
+              child:
+                  Text(
+                  "Email",
+                  style: TextStyle(
+                    fontFamily: 'Righteous',
+                    fontSize: 70,
+                    color: Colors.black,
                   ),
-                  Container(
-                    child: SizedBox(
-                      width: 200,
-                      height: 150,
-                      child: Image.asset("assets/RegisterWidget/email-icon.png")
-                    ),
-                    alignment: Alignment.center,
-                  ),
-                ],
+                  textAlign: TextAlign.left,
               ),
             ),
 
+
             SizedBox(
-              height: 40,
+              height: 100,
             ),
 
             TextFormField(
@@ -57,14 +51,14 @@ class EmailWidget extends StatelessWidget {
               cursorColor: Colors.black,
               style: new TextStyle( fontSize: 20, fontFamily: 'Overpass'),       
               decoration: InputDecoration(          
-                hintText: "E-mail",
+                labelText: "E-mail",
                 contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
                 border: OutlineInputBorder( 
                 borderRadius: BorderRadius.circular(10.0),
                 ),
                 labelStyle: TextStyle(
                   fontFamily: 'Overpass',
-                  color: Colors.white,
+                  color: Colors.black,
                   fontSize: 20,
                 ),
               ),
@@ -72,9 +66,8 @@ class EmailWidget extends StatelessWidget {
 
 
             SizedBox(
-              height: 40,
+              height: 150,
             ),
-
 
             Container(
                height: 60,
@@ -83,27 +76,35 @@ class EmailWidget extends StatelessWidget {
                 border: new Border.all(
                   color: Colors.black
                 ),
-                color: Colors.transparent      
-                /*borderRadius: BorderRadius.all(          
+                color: Colors.transparent,      
+                borderRadius: BorderRadius.all(          
                 Radius.circular(70),
-                ),*/ 
+                 ), 
                ),
+               child: SizedBox.expand(
                  child: FlatButton(
-                    child: Text(
-                         "CONTINUAR",
+                   child: Row(
+                     children: <Widget>[     
+                        SizedBox(
+                          width: 90,
+                        ),                 
+                       Text(
+                         "Continuar",
                          textAlign: TextAlign.left,
                          style: TextStyle(
                            fontFamily: 'Overpass',
                            color: Colors.black,
                            fontSize: 20,
                          ),
-                       ), 
-                       onPressed: () =>{}                  
-                 ),  
-                           
+                       ),
+                     ],
+                   ),
+                   onPressed: () =>{},
+                 ),            
+               ),
             ),
 
-             SizedBox(
+            SizedBox(
               height: 100,
             ),
 

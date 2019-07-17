@@ -49,17 +49,6 @@ class LoginWidget extends StatelessWidget {
               ),
             ),
             
-            /*Container(
-                child: Text(
-                  "iWenT",
-                  style: TextStyle(
-                    fontFamily: 'Righteous',
-                    fontSize: 70,
-                    color: Colors.white,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-            ),*/
 
             SizedBox(
               height: 40,
@@ -98,27 +87,7 @@ class LoginWidget extends StatelessWidget {
             SizedBox(
               height: 40,
             ),
-
-            Container(
-              height: 40,
-              child: FlatButton(
-                child: Text(
-                  "Cadastre-se",
-                  style: TextStyle(
-                    fontFamily: 'Overpass',
-                    color: Colors.white,
-                  ),
-                  textAlign: TextAlign.left,
-                ),
-                onPressed: () =>{
-                     Navigator.push(context, MaterialPageRoute(builder: (context) => EmailWidget()),) 
-                   },
-              ),
-            ),
-
-            SizedBox(
-              height: 5,
-            ),
+            
 
             Container(
                height: 60,
@@ -155,9 +124,26 @@ class LoginWidget extends StatelessWidget {
                ),
             ),
 
-             SizedBox(
-              height: 100,
-            ) 
+            SizedBox(
+              height: 150,
+            ),
+
+            Container(
+              height: 40,
+              child: FlatButton(
+                child: Text(
+                  "Cadastre-se",
+                  style: TextStyle(
+                    fontFamily: 'Overpass',
+                    color: Colors.white,
+                  ),
+                  textAlign: TextAlign.left,
+                ),
+                onPressed: () =>{
+                     Navigator.push(context, MaterialPageRoute(builder: (context) => EmailWidget()),) 
+                   },
+              ),
+            ),
             
 
           ],
