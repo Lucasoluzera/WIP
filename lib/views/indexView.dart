@@ -3,44 +3,52 @@ import 'package:flutter_social/_routing/routes.dart';
 import 'package:flutter_social/utils/colors.dart';
 import 'package:flutter_social/utils/utils.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-class LandingPage extends StatelessWidget {
+class IndexPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(statusBarColor: primaryColor),
     );
 
-    final logo = Container(
-      height: 100.0,
-      width: 100.0,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AvailableImages.appLogo,
-          fit: BoxFit.cover,
+    final pageTitle = Padding(
+      padding: EdgeInsets.only(top: 80),
+      child: Container(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Container(
+              child: SizedBox(
+                child: Image.asset("assets/images/iw-icon.png"),
+                height: 80,
+                width: 80,
+              ),
+            ),
+            Text(
+              AppConfig.appName,
+              style: GoogleFonts.megrim(
+                color: Colors.white,
+                fontSize: 70.0,
+                fontWeight: FontWeight.w100,
+              ),
+            )
+          ],
         ),
       ),
     );
 
-    final appName = Column(
-      children: <Widget>[
-        Text(
-          AppConfig.appName,
-          style: TextStyle(
-            fontFamily: 'Righteous',
-            color: Colors.white,
-            fontSize: 70.0,
-          ),
-        ),
-        Text(
+    final descricao = Container(
+      child: Center(
+        child: Text(
           AppConfig.appTagline,
           style: TextStyle(
-            color: Colors.white,
-            fontSize: 18.0,
-            fontWeight: FontWeight.w500
+            color: Colors.white60,
+            fontSize: 16.0,
+            fontWeight: FontWeight.w700,
           ),
-        )
-      ],
+        ),
+      ),
     );
 
     final loginBtn = InkWell(
@@ -71,20 +79,21 @@ class LandingPage extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(7.0),
-        border: Border.all(color: Colors.white),
-        color: Colors.white,
+        border: Border.all(color: Colors.orange[400]),
+        color: Colors.orange[400],
       ),
       child: RaisedButton(
         elevation: 5.0,
-        onPressed: () => Navigator.pushNamed(context, registerViewRoute),
-        color: Colors.white,
+        onPressed: () => Navigator.pushNamed(context, cadastroIndexViewRoute),
+        color: Colors.orange[400],
         shape: new RoundedRectangleBorder(
           borderRadius: new BorderRadius.circular(7.0),
         ),
         child: Text(
           'Sou novo',
           style: TextStyle(
-            fontWeight: FontWeight.w600,
+            color: Colors.white,
+            fontWeight: FontWeight.w500,
             fontSize: 20.0,
           ),
         ),
@@ -93,7 +102,7 @@ class LandingPage extends StatelessWidget {
 
     final buttons = Padding(
       padding: EdgeInsets.only(
-        top: 80.0,
+        top: 40.0,
         bottom: 30.0,
         left: 30.0,
         right: 30.0,
@@ -108,12 +117,12 @@ class LandingPage extends StatelessWidget {
         child: Stack(
           children: <Widget>[
             Container(
-              padding: EdgeInsets.only(top: 70.0),
+              padding: EdgeInsets.only(top: 100.0),
               decoration: BoxDecoration(gradient: primaryGradient),
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
               child: Column(
-                children: <Widget>[logo, appName, buttons],
+                children: <Widget>[pageTitle, descricao, buttons],
               ),
             ),
           ],

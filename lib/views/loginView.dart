@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_social/_routing/routes.dart';
 import 'package:flutter_social/utils/colors.dart';
+import 'package:flutter_social/utils/utils.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:flutter/services.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -18,27 +21,27 @@ class _LoginPageState extends State<LoginPage> {
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(statusBarColor: primaryColor),
     );
-    final pageTitle = Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Text(
-          "iWent",
-          style: TextStyle(
-            fontFamily: 'Righteous',
-            color: Colors.white,
-            fontSize: 45.0,
-          ),
-        ),
-        Text(
-          "As festas te aguardam!",
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 18.0,
-            fontWeight: FontWeight.w500,
-          ),
-        )
-      ],
-    );
+
+    final pageTitle = Center(
+        child: Row(
+          children: <Widget>[
+            Container(
+              child: SizedBox(
+                child: Image.asset("assets/images/iw-icon.png"),
+                height: 60,
+                width: 60,
+              ),
+            ),
+            Text(
+              AppConfig.appName,
+              style: GoogleFonts.megrim(
+                color: Colors.white,
+                fontSize: 40.0,
+                fontWeight: FontWeight.w600,
+              ),
+            )
+          ],
+        ));
 
     final emailField = TextFormField(
       decoration: InputDecoration(
@@ -82,7 +85,7 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     final loginForm = Padding(
-      padding: EdgeInsets.only(top: 30.0),
+      padding: EdgeInsets.only(top: 20.0),
       child: Form(
         key: _formKey,
         child: Column(
@@ -93,73 +96,94 @@ class _LoginPageState extends State<LoginPage> {
 
     final loginBtn = Container(
       margin: EdgeInsets.only(top: 40.0),
-      height: 60.0,
+      height: 50.0,
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(7.0),
-        border: Border.all(color: Colors.white),
-        color: Colors.white,
+        border: Border.all(color: Colors.orange[400]),
+        color: Colors.orange[400],
       ),
       child: RaisedButton(
         elevation: 5.0,
         onPressed: () => Navigator.pushNamed(context, homeViewRoute),
-        color: Colors.white,
+        color: Colors.orange[400],
         shape: new RoundedRectangleBorder(
           borderRadius: new BorderRadius.circular(7.0),
         ),
         child: Text(
-          'SIGN IN',
+          "Entrar",
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 18.0,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ),
+    );
+
+    final recuperarSenha = Padding(
+      padding: EdgeInsets.only(top: 10.0),
+      child: InkWell(
+        onTap: () => Navigator.pushNamed(context, resetPasswordViewRoute),
+        child: Text(
+          'Deu PT e esqueceu a senha?',
+          style: TextStyle(
+            color: Colors.orange[400],
+            fontSize: 16.0,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ),
+    );
+
+    final separador = Padding(
+      padding: EdgeInsets.only(top: 20.0),
+      child: Center(
+        child: Text(
+          'OU',
+          style: TextStyle(
+            color: Colors.white60,
+            fontSize: 16.0,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+      ),
+    );
+
+    final loginFacebook = Padding(
+      padding: EdgeInsets.only(top: 10),
+      child: Center(
+          child: FlatButton.icon(
+        onPressed: () => Navigator.of(context).pushNamed(homeViewRoute),
+        icon: FaIcon(
+          FontAwesomeIcons.facebookSquare,
+          color: Colors.white,
+        ),
+        label: Text(
+          'LOGAR COM O FACEBOOK',
           style: TextStyle(
             fontWeight: FontWeight.w800,
             fontSize: 20.0,
+            color: Colors.white,
           ),
         ),
-      ),
+      )),
     );
 
-    final forgotPassword = Padding(
-      padding: EdgeInsets.only(top: 50.0),
-      child: InkWell(
-        onTap: () => Navigator.pushNamed(context, resetPasswordViewRoute),
-        child: Center(
-          child: Text(
-            'Deu PT e esqueceu a senha?',
-            style: TextStyle(
-              color: Colors.white70,
-              fontSize: 18.0,
-              fontWeight: FontWeight.w600,
-            ),
+    final telaCadastro = Padding(
+      padding: EdgeInsets.only(top: 10),
+      child: Center(
+          child: InkWell(
+        onTap: () => Navigator.of(context).pushNamed(cadastroIndexViewRoute),
+        child: Text(
+          'Não possui conta? Cdastre-se',
+          style: TextStyle(
+            fontWeight: FontWeight.w100,
+            fontSize: 15.0,
+            color: Colors.white,
           ),
         ),
-      ),
-    );
-
-    final newUser = Padding(
-      padding: EdgeInsets.only(top: 20.0),
-      child: InkWell(
-        onTap: () => Navigator.pushNamed(context, registerViewRoute),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Nunca saiu de casa?',
-              style: TextStyle(
-                color: Colors.white70,
-                fontSize: 18.0,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            Text(
-              ' Novo Rolezeiro',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 18.0,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ],
-        ),
-      ),
+      )),
     );
 
     return Scaffold(
@@ -174,9 +198,11 @@ class _LoginPageState extends State<LoginPage> {
             children: <Widget>[
               pageTitle,
               loginForm,
+              recuperarSenha,
               loginBtn,
-              forgotPassword,
-              newUser
+              separador,
+              loginFacebook,
+              telaCadastro,
             ],
           ),
         ),

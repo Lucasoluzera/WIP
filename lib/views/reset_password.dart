@@ -99,7 +99,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
     final newUser = Padding(
       padding: EdgeInsets.only(top: 50.0),
       child: InkWell(
-        onTap: () => Navigator.pushNamed(context, registerViewRoute),
+        onTap: () => Navigator.pushNamed(context, cadastroNomeViewRoute),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[

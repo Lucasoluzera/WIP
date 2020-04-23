@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class AppConfig {
-  static const appName = "iWent";
-  static const appTagline = "Encontre seu Role";
+  static const appName = "WIP";
+  static const appTagline = "Onde é o Rolê?";
 }
 
 class AvailableFonts {

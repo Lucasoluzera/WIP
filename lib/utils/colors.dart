@@ -9,8 +9,8 @@ const secondaryColor = const Color(0xFFFF9F59);
 const secondaryLight = const Color(0xFFFF9F59);
 const secondaryDark = const Color(0xFFFF9F59);
 
-const Color gradientStart = const Color(0xFFFFA726);
-const Color gradientEnd = const Color(0xFFFFA726);
+const Color gradientStart = const Color(0xFF000000);
+const Color gradientEnd = const Color(0xFF000000);
 
 const primaryGradient = const LinearGradient(
   colors: const [gradientStart, gradientEnd],

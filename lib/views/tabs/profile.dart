@@ -110,8 +110,8 @@ class ProfilePage extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Align(
-                alignment: Alignment.center,
-                child: Text("BIOGRAFIA"),
+                alignment: Alignment.centerLeft,
+                child: Text("Me siga para ver meus eventos \n Perfil oficial \n Ta pronto rolezeiro?"),
               )
             ],
           ),
@@ -126,7 +126,7 @@ class ProfilePage extends StatelessWidget {
         borderRadius: BorderRadius.circular(8.0),
         shadowColor: Colors.white,
         child: Container(
-          height: 350.0,
+          height: 150,
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(8.0),

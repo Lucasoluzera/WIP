@@ -43,10 +43,9 @@ class NotificationsPage extends StatelessWidget {
     return Scaffold(
       body: Container(
         padding: EdgeInsets.only(
-          top: 70.0,
+          top: 30.0,
           left: 30.0,
           right: 30.0,
-          bottom: 30.0,
         ),
         height: deviceHeight,
         width: deviceWidth,

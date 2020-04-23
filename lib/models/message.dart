@@ -6,7 +6,7 @@ class Message {
 }
 
 List<Message> messages = [
-  Message("Hey! How's it going? 😀", false),
+  Message("Eai bb? 😀", false),
   Message("Great thanks, i am looking forward to meeting you tomorrow 😍", true),
   Message("Me too. Were you able to reach Frank?", false),
   Message("Not yet", false),
