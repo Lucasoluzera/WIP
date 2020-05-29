@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_social/utils/colors.dart';
-import 'package:flutter_social/utils/utils.dart';
+import 'package:wipapp/utils/colors.dart';
+import 'package:wipapp/utils/utils.dart';
 
 ThemeData buildThemeData(){
   final baseTheme = ThemeData(fontFamily: AvailableFonts.primaryFont);

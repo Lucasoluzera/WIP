@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_social/utils/utils.dart';
+import 'package:wipapp/utils/utils.dart';
 
 class NotificationsPage extends StatelessWidget {
   @override

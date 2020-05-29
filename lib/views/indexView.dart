@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_social/_routing/routes.dart';
-import 'package:flutter_social/utils/colors.dart';
-import 'package:flutter_social/utils/utils.dart';
+import 'package:wipapp/_routing/routes.dart';
+import 'package:wipapp/utils/colors.dart';
+import 'package:wipapp/utils/utils.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -51,28 +51,6 @@ class IndexPage extends StatelessWidget {
       ),
     );
 
-    final loginBtn = InkWell(
-      onTap: () => Navigator.pushNamed(context, loginViewRoute),
-      child: Container(
-        height: 60.0,
-        width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(7.0),
-          border: Border.all(color: Colors.white),
-          color: Colors.transparent,
-        ),
-        child: Center(
-          child: Text(
-            'Partiu!',
-            style: TextStyle(
-              fontWeight: FontWeight.w600,
-              fontSize: 20.0,
-              color: Colors.white,
-            ),
-          ),
-        ),
-      ),
-    );
 
     final registerBtn = Container(
       height: 60.0,
@@ -108,7 +86,7 @@ class IndexPage extends StatelessWidget {
         right: 30.0,
       ),
       child: Column(
-        children: <Widget>[loginBtn, SizedBox(height: 20.0), registerBtn],
+        children: <Widget>[SizedBox(height: 20.0), registerBtn],
       ),
     );
 

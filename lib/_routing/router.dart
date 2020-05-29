@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_social/_routing/routes.dart';
-import 'package:flutter_social/views/cadastroDataView.dart';
-import 'package:flutter_social/views/cadastroEmailView.dart';
-import 'package:flutter_social/views/cadastroSenhaView.dart';
-import 'package:flutter_social/views/cadastroTipoContaView.dart';
-import 'package:flutter_social/views/chat_details.dart';
-import 'package:flutter_social/views/home.dart';
-import 'package:flutter_social/views/indexView.dart';
-import 'package:flutter_social/views/loginView.dart';
-import 'package:flutter_social/views/cadastroNomeView.dart';
-import 'package:flutter_social/views/cadastroIndexView.dart';
-import 'package:flutter_social/views/reset_password.dart';
-import 'package:flutter_social/views/user_details.dart';
+import 'package:wipapp/_routing/routes.dart';
+import 'package:wipapp/views/cadastroDataView.dart';
+import 'package:wipapp/views/cadastroEmailView.dart';
+import 'package:wipapp/views/cadastroSenhaView.dart';
+import 'package:wipapp/views/cadastroTipoContaView.dart';
+import 'package:wipapp/views/chat_details.dart';
+import 'package:wipapp/views/home.dart';
+import 'package:wipapp/views/indexView.dart';
+import 'package:wipapp/views/loginView.dart';
+import 'package:wipapp/views/cadastroNomeView.dart';
+import 'package:wipapp/views/cadastroIndexView.dart';
+import 'package:wipapp/views/reset_password.dart';
+import 'package:wipapp/views/user_details.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
@@ -23,14 +23,6 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => LoginPage());
     case cadastroNomeViewRoute:
       return MaterialPageRoute(builder: (context) => CadastroNomePage());
-    case cadastroEmailViewRoute:
-      return MaterialPageRoute(builder: (context) => CadastroEmailPage());
-    case cadastroSenhaViewRoute:
-      return MaterialPageRoute(builder: (context) => CadastroSenhaPage());
-    case cadastroDataViewRoute:
-      return MaterialPageRoute(builder: (context) => CadastroDataPage());
-    case cadastroTipoContaViewRoute:
-      return MaterialPageRoute(builder: (context) => CadastroTipoContaPage());
     case cadastroIndexViewRoute:
       return MaterialPageRoute(builder: (context) => CadastroIndexPage());
     case resetPasswordViewRoute:

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_social/models/user.dart';
-import 'package:flutter_social/utils/colors.dart';
+import 'package:wipapp/models/user.dart';
+import 'package:wipapp/utils/colors.dart';
 import 'package:line_icons/line_icons.dart';
 
 class ProfilePage extends StatelessWidget {

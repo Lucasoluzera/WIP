@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_social/_routing/routes.dart';
-import 'package:flutter_social/models/feed.dart';
+import 'package:wipapp/_routing/routes.dart';
+import 'package:wipapp/models/feed.dart';
 
 class FeedCard3 extends StatelessWidget {
   final Feed feed;

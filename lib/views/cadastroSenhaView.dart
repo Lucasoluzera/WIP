@@ -1,19 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_social/_routing/routes.dart';
-import 'package:flutter_social/utils/colors.dart';
-import 'package:flutter_social/utils/utils.dart';
+import 'package:wipapp/_routing/routes.dart';
+import 'package:wipapp/utils/colors.dart';
+import 'package:wipapp/utils/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:line_icons/line_icons.dart';
 
+import 'cadastroDataView.dart';
+
 class CadastroSenhaPage extends StatefulWidget {
+  //Parametros Do formulario
+
+  final String nomeUsuario;
+  final String email;
+  CadastroSenhaPage({this.nomeUsuario, this.email});
+
   @override
-  _CadastroSenhaPage createState() => _CadastroSenhaPage();
+  _CadastroSenhaPage createState() => _CadastroSenhaPage(nomeUsuario, email);
 }
+
+
 
 class _CadastroSenhaPage extends State<CadastroSenhaPage> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  String _email;
+  String _nomeUsuario;
   String _senha;
+
+
+  _CadastroSenhaPage(this._nomeUsuario, this._email);
 
   @override
   Widget build(BuildContext context) {
@@ -128,7 +143,11 @@ class _CadastroSenhaPage extends State<CadastroSenhaPage> {
           else
             {
               _formKey.currentState.save(),
-              Navigator.pushNamed(context, cadastroDataViewRoute),
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => CadastroDataPage(
+                  nomeUsuario: _nomeUsuario,
+                  email: _email,
+                  senha: _senha
+              ))),
             }
         },
         color: Colors.orange[400],

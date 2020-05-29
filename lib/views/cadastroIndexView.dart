@@ -1,8 +1,12 @@
+import 'package:bloc_pattern/bloc_pattern.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_social/_routing/routes.dart';
-import 'package:flutter_social/utils/colors.dart';
-import 'package:flutter_social/utils/utils.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:wipapp/_routing/routes.dart';
+import 'package:wipapp/bloc/login-bloc.dart';
+import 'package:wipapp/utils/colors.dart';
+import 'package:wipapp/utils/utils.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:line_icons/line_icons.dart';
@@ -13,14 +17,10 @@ class CadastroIndexPage extends StatefulWidget {
 }
 
 class _CadastroIndexState extends State<CadastroIndexPage> {
-  final _formKey = GlobalKey<FormState>();
-  int _genderRadioBtnVal = -1;
+  FirebaseAuth _auth = FirebaseAuth.instance;
+  FirebaseUser _user;
+  GoogleSignIn _googleSignIn = new GoogleSignIn();
 
-  void _handleGenderChange(int value) {
-    setState(() {
-      _genderRadioBtnVal = value;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -99,28 +99,21 @@ class _CadastroIndexState extends State<CadastroIndexPage> {
           color: Colors.orange[400],
           elevation: 5.0,
           shadowColor: Colors.orange[300],
-          child: FlatButton(
-              onPressed: () =>
-                  Navigator.of(context).pushNamed(cadastroNomeViewRoute),
-              child: Row(
-                children: <Widget>[
-                  Container(
-                    child: SizedBox(
-                      child: Image.asset("assets/images/iw-icon.png"),
-                      height: 56,
-                      width: 56,
-                    ),
-                  ),
-                  Text(
-                    'CRIAR UM NOVO PERFIL',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w800,
-                      fontSize: 20.0,
-                      color: Colors.white,
-                    ),
-                  )
-                ],
-              )),
+          child: FlatButton.icon(
+            icon: FaIcon(
+              FontAwesomeIcons.google,
+              color: Colors.white,
+            ),
+            onPressed: () {handleSignIn();},
+            label: Text(
+              'LOGAR COM O GOOGLE',
+              style: TextStyle(
+                fontWeight: FontWeight.w800,
+                fontSize: 20.0,
+                color: Colors.white,
+              ),
+            ),
+          ),
         ),
       ),
     );
@@ -226,5 +219,21 @@ class _CadastroIndexState extends State<CadastroIndexPage> {
       style: TextStyle(color: Colors.black),
       cursorColor: Colors.black,
     );
+  }
+
+
+
+
+  Future<void> handleSignIn() async{
+    GoogleSignInAccount googleSignInAccount = await _googleSignIn.signIn();
+    GoogleSignInAuthentication googleSignInAuthentication = await googleSignInAccount.authentication;
+
+    AuthCredential credential = GoogleAuthProvider.getCredential(idToken: googleSignInAuthentication.idToken,
+        accessToken: googleSignInAuthentication.accessToken);
+
+    AuthResult result = (await _auth.signInWithCredential(credential));
+
+    _user = result.user;
+
   }
 }

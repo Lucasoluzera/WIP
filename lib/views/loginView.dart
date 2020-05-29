@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_social/_routing/routes.dart';
-import 'package:flutter_social/utils/colors.dart';
-import 'package:flutter_social/utils/utils.dart';
+import 'package:wipapp/_routing/routes.dart';
+import 'package:wipapp/utils/colors.dart';
+import 'package:wipapp/utils/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -24,26 +25,29 @@ class _LoginPageState extends State<LoginPage> {
 
     final pageTitle = Center(
         child: Row(
-          children: <Widget>[
-            Container(
-              child: SizedBox(
-                child: Image.asset("assets/images/iw-icon.png"),
-                height: 60,
-                width: 60,
-              ),
-            ),
-            Text(
-              AppConfig.appName,
-              style: GoogleFonts.megrim(
-                color: Colors.white,
-                fontSize: 40.0,
-                fontWeight: FontWeight.w600,
-              ),
-            )
-          ],
-        ));
+      children: <Widget>[
+        Container(
+          child: SizedBox(
+            child: Image.asset("assets/images/iw-icon.png"),
+            height: 60,
+            width: 60,
+          ),
+        ),
+        Text(
+          AppConfig.appName,
+          style: GoogleFonts.megrim(
+            color: Colors.white,
+            fontSize: 40.0,
+            fontWeight: FontWeight.w600,
+          ),
+        )
+      ],
+    ));
 
     final emailField = TextFormField(
+      validator: (text) {
+        if (text.isEmpty) return "por favor insira um usuario";
+      },
       decoration: InputDecoration(
         labelText: 'Usuário',
         labelStyle: TextStyle(color: Colors.white),
@@ -64,6 +68,9 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     final passwordField = TextFormField(
+      validator: (text) {
+        if (text.isEmpty) return "por favor insira uma senha";
+      },
       decoration: InputDecoration(
         labelText: 'Senha',
         labelStyle: TextStyle(color: Colors.white),
@@ -105,7 +112,13 @@ class _LoginPageState extends State<LoginPage> {
       ),
       child: RaisedButton(
         elevation: 5.0,
-        onPressed: () => Navigator.pushNamed(context, homeViewRoute),
+        onPressed: () => {
+          if (!_formKey.currentState.validate())
+            {
+//              _formKey.currentState.save(),
+//              Navigator.pushNamed(context, homeViewRoute),
+            }
+        },
         color: Colors.orange[400],
         shape: new RoundedRectangleBorder(
           borderRadius: new BorderRadius.circular(7.0),
@@ -154,7 +167,11 @@ class _LoginPageState extends State<LoginPage> {
       padding: EdgeInsets.only(top: 10),
       child: Center(
           child: FlatButton.icon(
-        onPressed: () => Navigator.of(context).pushNamed(homeViewRoute),
+        onPressed: () {
+          if (_formKey.currentState.validate()) {
+            Navigator.of(context).pushNamed(homeViewRoute);
+          }
+        },
         icon: FaIcon(
           FontAwesomeIcons.facebookSquare,
           color: Colors.white,
@@ -193,17 +210,19 @@ class _LoginPageState extends State<LoginPage> {
           decoration: BoxDecoration(gradient: primaryGradient),
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              pageTitle,
-              loginForm,
-              recuperarSenha,
-              loginBtn,
-              separador,
-              loginFacebook,
-              telaCadastro,
-            ],
+          child: Form(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                pageTitle,
+                loginForm,
+                recuperarSenha,
+                loginBtn,
+                separador,
+                loginFacebook,
+                telaCadastro,
+              ],
+            ),
           ),
         ),
       ),

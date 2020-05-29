@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_social/models/message.dart';
-import 'package:flutter_social/utils/colors.dart';
+import 'package:wipapp/models/message.dart';
+import 'package:wipapp/utils/colors.dart';
 
 class ChatBubble extends StatelessWidget {
   final Message message;

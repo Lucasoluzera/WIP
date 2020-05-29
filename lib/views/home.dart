@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_social/utils/colors.dart';
-import 'package:flutter_social/views/tabs/chats.dart';
-import 'package:flutter_social/views/tabs/feeds.dart';
-import 'package:flutter_social/views/tabs/notifications.dart';
-import 'package:flutter_social/views/tabs/profile.dart';
+import 'package:wipapp/utils/colors.dart';
+import 'package:wipapp/views/tabs/chats.dart';
+import 'package:wipapp/views/tabs/feeds.dart';
+import 'package:wipapp/views/tabs/notifications.dart';
+import 'package:wipapp/views/tabs/profile.dart';
 import 'package:line_icons/line_icons.dart';
 
 class HomePage extends StatefulWidget {

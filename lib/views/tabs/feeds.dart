@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_social/models/feed.dart';
-import 'package:flutter_social/widgets/feed_card1.dart';
-import 'package:flutter_social/widgets/feed_card2.dart';
-import 'package:flutter_social/widgets/feed_card3.dart';
+import 'package:wipapp/models/feed.dart';
+import 'package:wipapp/widgets/feed_card1.dart';
+import 'package:wipapp/widgets/feed_card2.dart';
+import 'package:wipapp/widgets/feed_card3.dart';
 
 class FeedsPage extends StatelessWidget {
   @override

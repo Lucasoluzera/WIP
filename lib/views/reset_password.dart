@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_social/_routing/routes.dart';
-import 'package:flutter_social/utils/colors.dart';
+import 'package:wipapp/_routing/routes.dart';
+import 'package:wipapp/utils/colors.dart';
 import 'package:line_icons/line_icons.dart';
 
 class ResetPasswordPage extends StatefulWidget {

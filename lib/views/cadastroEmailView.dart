@@ -1,19 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_social/_routing/routes.dart';
-import 'package:flutter_social/utils/colors.dart';
-import 'package:flutter_social/utils/utils.dart';
+import 'package:wipapp/_routing/routes.dart';
+import 'package:wipapp/utils/colors.dart';
+import 'package:wipapp/utils/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:line_icons/line_icons.dart';
 
+import 'cadastroSenhaView.dart';
+
 class CadastroEmailPage extends StatefulWidget {
+
+  final String nomeUsuario;
+  CadastroEmailPage({this.nomeUsuario});
+
+
   @override
-  _CadastroEmailPage createState() => _CadastroEmailPage();
+  _CadastroEmailPage createState() => _CadastroEmailPage(nomeUsuario);
 }
 
 class _CadastroEmailPage extends State<CadastroEmailPage> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  String _nome;
+  String _nomeUsuario;
+  _CadastroEmailPage(this._nomeUsuario);
+  String _email;
 
 
   String validateEmail(String value) {
@@ -91,7 +100,7 @@ class _CadastroEmailPage extends State<CadastroEmailPage> {
       autofocus: true,
       validator: validateEmail,
       onSaved: (String value) {
-        _nome = value;
+        _email = value;
       },
       decoration: InputDecoration(
         fillColor: Colors.grey[1000],
@@ -133,7 +142,9 @@ class _CadastroEmailPage extends State<CadastroEmailPage> {
           else
             {
               _formKey.currentState.save(),
-              Navigator.pushNamed(context, cadastroSenhaViewRoute),
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => CadastroSenhaPage(
+                  nomeUsuario: _nomeUsuario,
+                  email: _email))),
             }
         },
         color: Colors.orange[400],

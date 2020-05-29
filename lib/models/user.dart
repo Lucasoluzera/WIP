@@ -1,4 +1,4 @@
-import 'package:flutter_social/utils/utils.dart';
+import 'package:wipapp/utils/utils.dart';
 
 class User {
   int id;

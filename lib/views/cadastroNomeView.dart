@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_social/_routing/routes.dart';
-import 'package:flutter_social/utils/colors.dart';
-import 'package:flutter_social/utils/utils.dart';
+import 'package:wipapp/_routing/routes.dart';
+import 'package:wipapp/utils/colors.dart';
+import 'package:wipapp/utils/utils.dart';
+import 'package:wipapp/views/cadastroEmailView.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:line_icons/line_icons.dart';
 
@@ -122,12 +123,10 @@ class _CadastroNomePage extends State<CadastroNomePage> {
         elevation: 5.0,
 //        onPressed: () => Navigator.pushNamed(context, homeViewRoute),
         onPressed: () => {
-          if (!_formKey.currentState.validate())
-            {}
-          else
+          if (_formKey.currentState.validate())
             {
               _formKey.currentState.save(),
-              Navigator.pushNamed(context, cadastroEmailViewRoute),
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => CadastroEmailPage(nomeUsuario: _nome))),
             }
         },
         color: Colors.orange[400],

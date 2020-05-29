@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_social/_routing/routes.dart';
-import 'package:flutter_social/models/message.dart';
-import 'package:flutter_social/models/user.dart';
-import 'package:flutter_social/widgets/chat_bubble.dart';
+import 'package:wipapp/_routing/routes.dart';
+import 'package:wipapp/models/message.dart';
+import 'package:wipapp/models/user.dart';
+import 'package:wipapp/widgets/chat_bubble.dart';
 
 class ChatDetailsPage extends StatelessWidget {
   final int userId;

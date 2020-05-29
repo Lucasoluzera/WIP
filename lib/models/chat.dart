@@ -1,4 +1,4 @@
-import 'package:flutter_social/models/user.dart';
+import 'package:wipapp/models/user.dart';
 
 class Chat {
   int id, userId, unreadCount;

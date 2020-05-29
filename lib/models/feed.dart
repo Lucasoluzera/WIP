@@ -1,5 +1,5 @@
-import 'package:flutter_social/models/user.dart';
-import 'package:flutter_social/utils/utils.dart';
+import 'package:wipapp/models/user.dart';
+import 'package:wipapp/utils/utils.dart';
 
 class Feed {
   int id, userId;

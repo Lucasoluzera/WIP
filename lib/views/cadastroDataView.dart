@@ -1,21 +1,33 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
-import 'package:flutter_social/_routing/routes.dart';
-import 'package:flutter_social/utils/colors.dart';
-import 'package:flutter_social/utils/utils.dart';
+import 'package:wipapp/utils/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:line_icons/line_icons.dart';
 
+import 'cadastroTipoContaView.dart';
+
 class CadastroDataPage extends StatefulWidget {
+  String nomeUsuario;
+  String email;
+  String senha;
+
+  CadastroDataPage({this.nomeUsuario, this.email, this.senha});
+
   @override
-  _CadastroDataPage createState() => _CadastroDataPage();
+  _CadastroDataPage createState() =>
+      _CadastroDataPage(nomeUsuario, email, senha);
 }
 
 class _CadastroDataPage extends State<CadastroDataPage> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   String _data;
+  String _nomeUsuario;
+  String _email;
+  String _senha;
+
+  _CadastroDataPage(this._nomeUsuario, this._email, this._senha);
+
   var _controllerData = new MaskedTextController(mask: '00/00/0000');
 
   @override
@@ -23,9 +35,6 @@ class _CadastroDataPage extends State<CadastroDataPage> {
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(statusBarColor: primaryColor),
     );
-
-
-
 
     final appBar = Padding(
       padding: EdgeInsets.only(bottom: 10.0),
@@ -89,7 +98,7 @@ class _CadastroDataPage extends State<CadastroDataPage> {
       controller: _controllerData,
       validator: (String value) {
         if (value.isEmpty) {
-          return 'Informe uma senha.';
+          return 'Informe uma data.';
         }
       },
       onSaved: (String value) {
@@ -130,12 +139,18 @@ class _CadastroDataPage extends State<CadastroDataPage> {
         elevation: 5.0,
 //        onPressed: () => Navigator.pushNamed(context, homeViewRoute),
         onPressed: () => {
-          if (!_formKey.currentState.validate())
-            {}
-          else
+          if (_formKey.currentState.validate())
             {
               _formKey.currentState.save(),
-              Navigator.pushNamed(context, cadastroTipoContaViewRoute),
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                    builder: (context) => CadastroTipoContaPage(
+                      nomeUsuario: _nomeUsuario,
+                      email: _email,
+                      senha: _senha,
+                      data: _data,
+                    )),
+              ),
             }
         },
         color: Colors.orange[400],
@@ -152,7 +167,6 @@ class _CadastroDataPage extends State<CadastroDataPage> {
         ),
       ),
     );
-
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -184,6 +198,5 @@ class _CadastroDataPage extends State<CadastroDataPage> {
         ),
       ),
     );
-
   }
 }
